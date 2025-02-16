@@ -1,0 +1,68 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+/* Navbar Styles */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-con {
+  position: absolute;
+  z-index: 500;
+  background-color: red;
+  left: 0%;
+  width: 1000%;
+  transition: all 0.5s ease;
+  margin-top: 25px;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li:hover .nav-con {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 15px;
+}
+
+.nav-con ul {
+  list-style: none;
+}
+
+.nav-con ul li {
+  padding: 5px 0;
+  
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
