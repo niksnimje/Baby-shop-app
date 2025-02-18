@@ -10,6 +10,7 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import toast from "react-hot-toast";
 import LoadingBar from "react-top-loading-bar";
+import like from "../assets/heart.png"
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -239,11 +240,11 @@ const Navigation = () => {
                       </a>
                     </li>
                     <li className="pe-3 pt-2 d-none d-sm-none d-md-none d-lg-block">
-                      <a href="/cart">
-                        <img src="../src\assets\heart.png" height={20} alt="Cart" />
+                      <a href="/wishlist">
+                        <img src={like} height={20} alt="wishlist" />
                       </a>
                     </li>
-                    <li className="pe-4 d-none d-sm-none d-md-none d-lg-block">
+                    <li className="pe-4 pt-2 d-none d-sm-none d-md-none d-lg-block">
                       {user ? (
                         <div className="dropdown">
                           <div >
@@ -430,7 +431,7 @@ const Navigation = () => {
         </li>
         <li className="pe-3 pt-2 ">
                       <a href="/wishlist">
-                      <img src="../src\assets\heart.png" height={20} alt="Cart" /> <span className="text-black pe-1">Wish List</span> 
+                      <img src={like} height={20} alt="Cart" /> <span className="text-black pe-1">Wish List</span> 
                       </a>
                     </li>
       </ul>
