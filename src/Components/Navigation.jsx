@@ -67,7 +67,7 @@ const Navigation = () => {
     loadingBarRef.current.continuousStart();
 
     try {
-      const res = await axios.post("https://shopping-web-kid-s-be.onrender.com/auth/login", userLoginData, {
+      const res = await axios.post(`${import.meta.env.VITE_BASEURL}auth/login`, userLoginData, {
         withCredentials: true,
       });
       console.log(res.data);
@@ -97,7 +97,7 @@ const Navigation = () => {
     loadingBarRef.current.continuousStart();
 
     try {
-      const res = await axios.post("https://shopping-web-kid-s-be.onrender.com/auth/register", userData, {
+      const res = await axios.post(`${import.meta.env.VITE_BASEURL}auth/register`, userData, {
         withCredentials: true,
       });
       console.log(res.data);
@@ -238,11 +238,16 @@ const Navigation = () => {
                         <img src="https://intenship-project-fe.vercel.app/img/icon-3.png" alt="Cart" />
                       </a>
                     </li>
-                    <li className="pe-4 pt-2 d-none d-sm-none d-md-none d-lg-block">
+                    <li className="pe-3 pt-2 d-none d-sm-none d-md-none d-lg-block">
+                      <a href="/cart">
+                        <img src="../src\assets\heart.png" height={20} alt="Cart" />
+                      </a>
+                    </li>
+                    <li className="pe-4 d-none d-sm-none d-md-none d-lg-block">
                       {user ? (
                         <div className="dropdown">
                           <div >
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG1dXcbGQTvqLXLBEQnr3S2ta1flJNUUc6kw&s" height={45} alt="user"/>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG1dXcbGQTvqLXLBEQnr3S2ta1flJNUUc6kw&s" height={30} alt="user"/>
               </div>
               <button
                 className="btn dropdown-toggle p-0"
@@ -365,7 +370,7 @@ const Navigation = () => {
   </div>
   <div className="offcanvas-body">
     <nav>
-      <ul className="list-unstyled p-2">
+      <ul className="list-unstyled p-2 d-block">
         {/* Conditionally render profile dropdown or login button */}
         <li className="pe-4 pt-2 d-block d-sm-block d-md-block d-lg-none">
           {user ? (
@@ -402,26 +407,32 @@ const Navigation = () => {
         </li>
 
         {/* Other menu items */}
-        <li className="pe-4 pt-2">
+        <li className="pe-4 pt-3
+        ">
           <a href="secound.html" className="nav-link p-0">
-            Hair Type
+            Cloth's
           </a>
         </li>
         <li className="pe-4 pt-2">
           <a href="" className="nav-link p-0">
-            Hair Concern
+            Toy's
           </a>
         </li>
         <li className="pe-4 pt-2">
           <a href="product.html" className="nav-link p-0">
-            Products
+          All Products
           </a>
         </li>
         <li className="pe-4 pt-2">
           <a href="" className="nav-link p-0">
-            Pet Teezer
+            About Us
           </a>
         </li>
+        <li className="pe-3 pt-2 ">
+                      <a href="/wishlist">
+                      <img src="../src\assets\heart.png" height={20} alt="Cart" /> <span className="text-black pe-1">Wish List</span> 
+                      </a>
+                    </li>
       </ul>
     </nav>
   </div>

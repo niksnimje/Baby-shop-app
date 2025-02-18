@@ -27,7 +27,7 @@ nav ul li a {
 .nav-con {
   position: absolute;
   z-index: 500;
-  background-color: red;
+  background-color: whitesmoke;
   left: 0%;
   width: 1000%;
   transition: all 0.5s ease;

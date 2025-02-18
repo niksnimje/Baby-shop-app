@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Footer = () => {
   return (
-    <footer className="text-white py-4" style={{backgroundColor:"#232121"}}>
+    <footer className="text-white py-4 mt-5" style={{backgroundColor:"#232121"}}>
       <div className="container">
         <div className="row">
           {/* Newsletter Section */}

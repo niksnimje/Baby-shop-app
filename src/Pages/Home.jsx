@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Home.css"
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,12 +7,22 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import axios from 'axios';
 
 function Home() {
+
+  const [productData,setProductData]=useState("")
+
+  axios.get(`${import.meta.env.VITE_BASEURL}products/getproduct`)
+  .then((res)=>{
+    console.log(res.data)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+
   return (
     <>
-    
-        
       {/* slider here  */}
 
       <div className="slider-container">
@@ -103,8 +113,6 @@ function Home() {
       </Swiper>
     </div>
 
-
-
         <div className="container-fluid">
         <div className="row p-0 m-0">
           <div className="col-12 position-relative d-none d-sm-block d-md-block d-lg-block  p-0">
@@ -122,6 +130,22 @@ function Home() {
           </div>
         </div>
       </div>
+
+
+
+            {/* <div>
+            <a class="a-all-product" href="">
+                <div class="product" onmouseover="changeImage('${containerId}-img-${id}', '${hoverImage}')" onmouseout="changeImage('${containerId}-img-${id}', '${image}')">
+                    <img id="${containerId}-img-${id}" src="${image}" alt="${title}" />
+                    <div class="product1-con">
+                        <h3>${title}</h3>
+                        <p>Price: £ ${price}</p>
+                        <a href="" class="Addtocard ms-4" id="Add_TO_Cart22">Add To Bag</a>
+                    </div>
+                </div>
+            </a>
+            </div> */}
+
 
       <div className="container-fluid mt-5">
         <div className="row p-0 m-0">
