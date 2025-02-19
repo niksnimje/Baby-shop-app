@@ -179,8 +179,9 @@ function Home() {
             </div>
             </a>
             <h6>{product.title}</h6>
-            <p><strong>Price:</strong> {product.price} <span className='text-danger'>({product.discount})</span></p> 
-              <div className='d-flex justify-content-around '>
+            <h6 className='mb-1'><strong>Price:</strong> {product.price} </h6> 
+            <span >MRP-<strike>{product.realPrice}</strike></span> <span className='text-danger'>({product.discount}%discount)</span>
+              <div className='d-flex justify-content-around mt-3'>
               <button style={{border:"1px solid black" }} className="btn ps-2 pe-2 pt-2 pb-2 cart-btn " >
                 Add to Cart <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR95MEUVHoIa7CMfZKjE-YVEO-etjhBym7CCg&s" height={26} alt="" className='cart-img' />
               </button>

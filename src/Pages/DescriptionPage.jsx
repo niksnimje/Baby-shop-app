@@ -57,15 +57,15 @@ function DescriptionPage() {
               <Row>
                 <Col sm={12} className="d-none d-lg-flex">
                   <div className="d-flex flex-column flex-lg-row flex-wrap gap-1">
-                    <img src={product.img} alt={product.title} className="img-fluid mb-2" />
-                    <img src={product.img2} alt={product.title} className="img-fluid mb-2" />
+                    <img src={product.img} alt={product.title} width={350} className="img-fluid mb-2" />
+                    <img src={product.img2} alt="" width={350} className="img-fluid mb-2" />
                   </div>
                 </Col>
 
                 <Col sm={12} className="d-none d-lg-flex">
                   <div className="d-flex flex-column flex-lg-row flex-wrap gap-1">
-                    <img src={product.img3} alt={product.title} className="img-fluid mb-2" />
-                    <img src={product.img4} alt={product.title} className="img-fluid mb-2" />
+                    <img src={product.img3} alt={product.title} width={350} className="img-fluid mb-2" />
+                    <img src={product.img4} alt={product.title} width={350} className="img-fluid mb-2" />
                   </div>
                 </Col>
                 <Col sm={12} className="d-lg-none">

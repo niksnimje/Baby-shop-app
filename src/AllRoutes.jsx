@@ -9,6 +9,7 @@ import ForgotPass from './Pages/ForgotPass'
 import Product from './Pages/Product'
 import Privateroutes from './Components/Privateroutes'
 import DescriptionPage from './Pages/DescriptionPage'
+import AddProduct from './Pages/AddProduct'
 
 function AllRoutes() {
   return (
@@ -19,6 +20,7 @@ function AllRoutes() {
         {/* <Route  path="/user" element={<User />} /> */}
         {/* <Route  path="/rigister" element={<Rigister />} /> */}
         <Route  path="/forgotpassword" element={<ForgotPass />} />
+        <Route  path="/addproduct" element={<AddProduct />} />
         <Route  path="/about" element={<About />} />
         <Route  path="/description/:id" element={<DescriptionPage />} />
         <Route  path="/product" element={
