@@ -10,7 +10,7 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import toast from "react-hot-toast";
 import LoadingBar from "react-top-loading-bar";
-import like from "../assets/heart.png"
+import like from  "../assets/heart.png"
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -71,6 +71,9 @@ const Navigation = () => {
       const res = await axios.post(`${import.meta.env.VITE_BASEURL}auth/login`, userLoginData, {
         withCredentials: true,
       });
+      // const res = await axios.post(`http://localhost:8080/auth/login`, userLoginData, {
+      //   withCredentials: true,
+      // });
       console.log(res.data);
       toast.success(res.data.message);
       handleCloseLogin();
@@ -101,6 +104,9 @@ const Navigation = () => {
       const res = await axios.post(`${import.meta.env.VITE_BASEURL}auth/register`, userData, {
         withCredentials: true,
       });
+      // const res = await axios.post(`http://localhost:8080/auth/register`, userData, {
+      //   withCredentials: true,
+      // });
       console.log(res.data);
       toast.success(res.data.message);
 
@@ -162,47 +168,66 @@ const Navigation = () => {
                 <nav className="d-none d-sm-none d-md-none d-lg-block">
                     <ul className="list-unstyled d-flex p-2">
                         <li className="pe-4 pt-2 ps-4">
-                            <a href="secound.html" className="nav-link p-0 nav-a">
-                                Cloth's
+                            <a href="/" className="nav-link p-0 nav-a">
+                                Home
                             </a>
-                            <div className="nav-con justify-content-evenly gap-3 ">
-                                <ul>
-                                    <li>Cloth 1</li>
-                                    <li>Cloth 2</li>
-                                    <li>Cloth 3</li>
-                                    <li>Cloth 4</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="pe-4 pt-2">
-                            <a href="" className="nav-link p-0 nav-a">
-                                Toy's
-                            </a>
-                            <div className="nav-con justify-content-evenly gap-3 ">
-                                <ul>
-                                    <li>Toy 1</li>
-                                    <li>Toy 2</li>
-                                    <li>Toy 3</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="pe-4 pt-2">
-                            <a href="/product" className="nav-link p-0 nav-a">
-                                Products
-                            </a>
-                            <div className="nav-con justify-content-evenly gap-3  pe-5">
-                                <ul>
-                                    <li>Product 1</li>
-                                    <li>Product 2</li>
-                                    <li>Product 3</li>
-                                </ul>
-                            </div>
                         </li>
                         <li className="pe-4 pt-2">
                             <a href="pet.html" className="nav-link p-0 nav-a">
                                 About Us
                             </a>
                         </li>
+                        <li className="pe-4 pt-2">
+                            <a href="/product" className="nav-link p-0 nav-a">
+                                Products
+                            </a>
+                            <div className="nav-con   pe-5">
+                              <h4>Category</h4>
+                                <ul>
+                                    <li className="pe-3">
+                                      <h5>Cloth's</h5>
+                                        <li><a href="/" className="text-black">Kurta for Boy's</a></li>
+                                        <li><a href="/" className="text-black">Kurti for Girl's</a></li>
+                                        <li><a href="/" className="text-black">Top for Girl's</a></li>
+                                        <li><a href="/" className="text-black">T-Shirt For Boy's</a></li>
+                                        <li><a href="/" className="text-black">Formal Shirt For Boy's</a></li>
+                                        <li><a href="/" className="text-black">Dress For Girl's</a></li>
+                                    </li>
+                                    <li className="pe-5">
+                                    <h5>Toy's</h5>
+                                    <li><a href="/" className="text-black">Car</a></li>
+                                        <li><a href="/" className="text-black">ROBOT</a></li>
+                                        <li><a href="/" className="text-black">Mini Laptop</a></li>
+                                        <li><a href="/" className="text-black">Color pen</a></li>
+                                        <li><a href="/" className="text-black">Puzzle Box</a></li>
+                                        <li><a href="/" className="text-black">Teaddy Bear</a></li>
+                                    </li>
+                                    <li className="pe-5">
+                                    <h5>Accessories</h5>
+                                    <li><a href="/" className="text-black">Scrubber</a></li>
+                                        <li><a href="/" className="text-black">Bath Towel </a></li>
+                                        <li><a href="/" className="text-black">Bathtub with Cushion </a></li>
+                                        <li><a href="/" className="text-black">Head Band</a></li>
+                                        <li><a href="/" className="text-black">Hair Pins</a></li>
+                                    </li>
+                                    <li>
+                                    <h5>Food</h5>
+                                    <li><a href="/" className="text-black">Cookies</a></li>
+                                        <li><a href="/" className="text-black">Milk & Fruits</a></li>
+                                        <li><a href="/" className="text-black">Moog Dal </a></li>
+                                        <li><a href="/" className="text-black">White Apple Carrot</a></li>
+                                        
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+                        <li className="pe-4 pt-2">
+                            <a href="" className="nav-link p-0 nav-a">
+                                Contact
+                            </a>
+                        </li>
+                        
                     </ul>
                 </nav>
               </div>
@@ -410,23 +435,23 @@ const Navigation = () => {
         {/* Other menu items */}
         <li className="pe-4 pt-3
         ">
-          <a href="secound.html" className="nav-link p-0">
-            Cloth's
+          <a href="/" className="nav-link p-0">
+            Home
           </a>
         </li>
         <li className="pe-4 pt-2">
-          <a href="" className="nav-link p-0">
-            Toy's
+          <a href="/about" className="nav-link p-0">
+            About Us
           </a>
         </li>
         <li className="pe-4 pt-2">
-          <a href="product.html" className="nav-link p-0">
+          <a href="/product" className="nav-link p-0">
           All Products
           </a>
         </li>
         <li className="pe-4 pt-2">
-          <a href="" className="nav-link p-0">
-            About Us
+          <a href="/contact" className="nav-link p-0">
+            Contact Us
           </a>
         </li>
         <li className="pe-3 pt-2 ">

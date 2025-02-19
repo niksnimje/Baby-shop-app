@@ -8,6 +8,7 @@ import About from './Pages/About'
 import ForgotPass from './Pages/ForgotPass'
 import Product from './Pages/Product'
 import Privateroutes from './Components/Privateroutes'
+import DescriptionPage from './Pages/DescriptionPage'
 
 function AllRoutes() {
   return (
@@ -19,10 +20,12 @@ function AllRoutes() {
         {/* <Route  path="/rigister" element={<Rigister />} /> */}
         <Route  path="/forgotpassword" element={<ForgotPass />} />
         <Route  path="/about" element={<About />} />
+        <Route  path="/description/:id" element={<DescriptionPage />} />
         <Route  path="/product" element={
         <Privateroutes>
           <Product />
         </Privateroutes>} />
+
     </Routes> 
         <Footer />
     </>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Home.css"
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,18 +8,47 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import axios from 'axios';
+import like from "../assets/heart.png"
+import { Link } from 'react-router-dom';
 
 function Home() {
 
-  const [productData,setProductData]=useState("")
 
-  axios.get(`${import.meta.env.VITE_BASEURL}products/getproduct`)
-  .then((res)=>{
-    console.log(res.data)
-  })
-  .catch((err)=>{
-    console.log(err)
-  })
+
+  const [productData, setProductData] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_BASEURL}products/getproduct`)
+    // axios.get("http://localhost:8080/products/getproduct")
+      .then((res) => {
+        console.log(res.data.product);
+        setProductData(res.data.product);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  // check user is login or not if not login show alert login frist else add to wishlist
+  // const handelWishlist = (id) => {
+  //   if (!localStorage.getItem('token')) {
+  //     alert("Please login first");
+  //   }
+  //   else {
+  //     axios.post("http://localhost:8080/wishlist/add", {
+  //       "productId": id
+  //       })
+  //       .then((res) => {
+  //         console.log(res.data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       })
+  //     }
+  //   }
+  // }
+
+
 
   return (
     <>
@@ -132,19 +161,36 @@ function Home() {
       </div>
 
 
+{/* Product */}
 
-            {/* <div>
-            <a class="a-all-product" href="">
-                <div class="product" onmouseover="changeImage('${containerId}-img-${id}', '${hoverImage}')" onmouseout="changeImage('${containerId}-img-${id}', '${image}')">
-                    <img id="${containerId}-img-${id}" src="${image}" alt="${title}" />
-                    <div class="product1-con">
-                        <h3>${title}</h3>
-                        <p>Price: £ ${price}</p>
-                        <a href="" class="Addtocard ms-4" id="Add_TO_Cart22">Add To Bag</a>
-                    </div>
-                </div>
+      <div style={{ display: 'flex', overflow:"hidden", justifyContent:"center",marginTop:"5%", flexWrap: 'wrap', gap: '20px' }}>
+        {productData.map((product) => (
+          <div className='product-hov' key={product._id} style={{overflow:"hidden", border: '1px solid #ccc', padding: '10px', width: '280px' }}>
+            
+            <a href="/description" >
+              <Link to={`/description/${product._id}`}>
+            <img className='product-img' src={product.img} alt={product.title} style={{ width: '100%', height: 'auto',zIndex:"500" }} />
+            </Link>
+            <div className='product-overly text-center '>
+              {/* cerate add to wishlist btn */}
+              <button className="btn ps-5 pe-5 pt-2 pb-2 ">
+               <img src={like} height={22} alt="" /> Add to wishlist 
+              </button>
+            </div>
             </a>
-            </div> */}
+            <h6>{product.title}</h6>
+            <p><strong>Price:</strong> {product.price} <span className='text-danger'>({product.discount})</span></p> 
+              <div className='d-flex justify-content-around '>
+              <button style={{border:"1px solid black" }} className="btn ps-2 pe-2 pt-2 pb-2 cart-btn " >
+                Add to Cart <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR95MEUVHoIa7CMfZKjE-YVEO-etjhBym7CCg&s" height={26} alt="" className='cart-img' />
+              </button>
+              <button style={{backgroundColor:"#914BE6"}} className="btn  text-white ps-2 pe-3 pt-2 pb-2 ">
+                Buy Now
+              </button>
+              </div>
+          </div>
+        ))}
+      </div>
 
 
       <div className="container-fluid mt-5">

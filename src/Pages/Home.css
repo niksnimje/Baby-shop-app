@@ -61,3 +61,43 @@
     border: none;
   }
   
+  .product-overly
+  {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    z-index: 999;
+    position: relative;
+    transition: all 0.5s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .product-hov:hover .product-overly {
+    color: red;
+    margin-top: -5%;
+    opacity: 1;
+    visibility: visible;
+  }
+  .product-img
+  {
+    transition: all 0.5s ease;
+  }
+  .product-hov:hover .product-img{
+    transform: scale(1.1);
+  }
+
+  .cart-img
+  {
+    transition: all 0.5s ease;
+  }
+
+  .cart-btn:hover 
+  {
+    border: 1px solid purple;
+    color: purple;
+  }
+  .cart-btn:hover .cart-img
+  {
+    margin-left: -29%;
+  }
+
