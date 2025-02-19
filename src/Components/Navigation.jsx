@@ -227,6 +227,11 @@ const Navigation = () => {
                                 Contact
                             </a>
                         </li>
+                        <li className="pe-4 pt-2">
+                            <a href="/addproduct" className="nav-link p-0 nav-a">
+                                Add 
+                            </a>
+                        </li>
                         
                     </ul>
                 </nav>
